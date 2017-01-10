@@ -1,0 +1,40 @@
+.container {
+    max-width: 1000px;
+}
+
+div {
+    margin: auto;
+    text-align: center;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    font-family: "Times New Roman", Georgia, Serif;
+}
+
+h2 {
+    font-family: "Times New Roman", Georgia, Serif;
+}
+
+.form-control {
+    width: 100%;
+    font-size: 16px;
+    font-family: "Times New Roman", Georgia, Serif;
+}
+
+.btn {
+    font-size: 20px;
+    font-family: "Times New Roman", Georgia, Serif;
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    text-align: left;
+}

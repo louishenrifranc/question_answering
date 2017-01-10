@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="qa_app">
+    <head>
+        <title>Question Answering</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="/static/style.css" rel="stylesheet">
+    </head>
+    <body ng-controller="qa_controller">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>Question Answering</h1>
+                    <br>
+                    <form role="form" ng-submit="ask()">
+                        <textarea rows="10" ng-model="context", name="context" class="form-control" id="context-box" placeholder="Context..." autofocus required autocomplete="off"></textarea>
+                        <br>
+                        <input type="text" ng-model="question", name="question" class="form-control" id="question-box" placeholder="Question..." required autocomplete="off">
+                        <br>
+                        <button type="submit" name="ask" class="btn btn-primary">Ask</button>
+                        <button type="reset" name="clear" class="btn btn-primary">Clear</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <h2>{{ answer }}</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="context in attention_context">
+                            <td>{{ $index + 1 }}</td>
+                            <td>{{ context.sentence }}</td>
+                            <td style="background-color: rgba(72,209,204,{{context.attention[0]}});">{{ context.attention[0] * 100 | number:2 }} %</td>
+                            <td style="background-color: rgba(72,209,204,{{context.attention[1]}});">{{ context.attention[1] * 100 | number:2 }} %</td>
+                            <td style="background-color: rgba(72,209,204,{{context.attention[2]}});">{{ context.attention[2] * 100 | number:2 }} %</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+        <script src="/static/main.js"></script>
+    </body>
+</html>

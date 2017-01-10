@@ -1,0 +1,7 @@
+*/data
+*/__pycache__/
+*/models/
+theory/
+*/results/
+*env/
+*.svg
